@@ -14,7 +14,7 @@ public class ClsUsuario {
     public ArrayList<usuario> TraerUsuarios() {
         var listado = new ArrayList<usuario>();
         try {
-            CallableStatement statement = con.prepareCall("SELECT * FROM usuario where tipoUsuario=2;");
+            CallableStatement statement = con.prepareCall("SELECT * FROM usuario;");
             ResultSet res = statement.executeQuery();
             while (res.next()) {
                 usuario usu = new usuario();
@@ -36,7 +36,35 @@ public class ClsUsuario {
 			CallableStatement statement= con.prepareCall("call sp_d_user(?)");
 			statement.setInt("pIdUsuario", user.getIdUsuario());
 			statement.executeQuery();
-			System.out.println("Exito");
+			System.out.println("Eliminado");
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			// TODO: handle exception
+		}
+	}
+    public void Actualizar(usuario user) {
+		try {
+			CallableStatement statement= con.prepareCall("call sp_u_usuario(?,?,?)");
+			statement.setString("PUsuario", user.getUsuario());
+			statement.setString("PPass", user.getPassWord());
+			statement.setInt("PidUsuario", user.getIdUsuario());
+			statement.executeQuery();
+			System.out.println("Actualizado");
+			con.close();
+		} catch (Exception e) {
+			System.out.println(e);
+			// TODO: handle exception
+		}
+	}
+    public void Agregar(usuario user) {
+		try {
+			CallableStatement statement= con.prepareCall("call sp_i_usuario(?,?,?)");
+			statement.setString("PUsuario", user.getUsuario());
+			statement.setString("PPass", user.getPassWord());
+			statement.setInt("PTipoUsuario", user.getTipoUsuario());
+			statement.executeQuery();
+			System.out.println("Guardado");
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);

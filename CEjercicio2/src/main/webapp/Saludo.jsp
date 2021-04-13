@@ -18,6 +18,7 @@
 			  		<div class="panel-body">
 			  			<div class="centrar">
 			  			<h1></h1>
+			  			<a class="btn btn-info" href="add.jsp">Agregar Nuevo</a>
 			  				<script type="text/javascript">
 			  					$(document).ready(function (){
 		  							$.post('ControllerMostrarInformacion',{
@@ -36,8 +37,8 @@
 		  											<td> ${item.idUsuario} </td>
 		  											<td> ${item.Usuario} </td>
 		  											<td> ${item.PassWord} </td>
-		  											<td> <a href="ControllerMostrarInformacion?usu=${item.idUsuario}" class="btn btn-warning">Actualizar </td>
-		  											<td> <a name="usu" href="ControllerMostrarInformacion?usu=${item.idUsuario}" class="btn btn-danger">Eliminar </td>
+		  											<td> <a href="ControllerMostrarInformacion?IdUsuario=${item.idUsuario}&Eliminar=btne" class="btn btn-danger">Eliminar </td>
+		  											<td> <a name="usu" href="add.jsp?Id=${item.idUsuario}&Usuario=${item.Usuario}&Pass=${item.PassWord}" class="btn btn-warning">Actualizar </td>
 		  										</tr>
 		  										
 		  									
