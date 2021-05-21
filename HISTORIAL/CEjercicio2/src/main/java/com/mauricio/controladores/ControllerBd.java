@@ -40,8 +40,6 @@ public class ControllerBd extends HttpServlet {
 		//doGet(request, response);
 		ConexionBd conectar = new ConexionBd();
 		conectar.RetornarConexion();
-		
-		
 	}
 
 }

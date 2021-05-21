@@ -1,11 +1,11 @@
 package com.mauricio.entidades;
 
 public class tipoUsuario {
-	private int Id;
-	private String TipoUser;
+	 private int Id;
+	 private String TipoUser;
 	 
-	public int getId() {
-	return Id;
+	 public int getId() {
+		return Id;
 	}
 	public void setId(int id) {
 		Id = id;

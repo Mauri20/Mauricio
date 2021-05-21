@@ -2,24 +2,20 @@ package com.mauricio.controladores;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mauricio.conexion.ConexionBd;
-
 /**
- * Servlet implementation class ControllerBd
+ * Servlet implementation class ControllerAjax
  */
-@WebServlet("/ControllerBd")
-public class ControllerBd extends HttpServlet {
+public class ControllerAjax extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ControllerBd() {
+    public ControllerAjax() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,10 +34,11 @@ public class ControllerBd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		ConexionBd conectar = new ConexionBd();
-		conectar.RetornarConexion();
 		
+		String capturador= request.getParameter("box");
+		System.out.println(capturador);
 		
+		response.getWriter().append(capturador);
 	}
 
 }

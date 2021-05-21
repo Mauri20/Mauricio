@@ -3,7 +3,6 @@ package com.mauricio.entidades;
 public class Login {
 	private String User;
 	private String Pass;
-	private int Tipo;
 	
 	
 	public String getUser() {
@@ -17,12 +16,6 @@ public class Login {
 	}
 	public void setPass(String pass) {
 		Pass = pass;
-	}
-	public int getTipo() {
-		return Tipo;
-	}
-	public void setTipo(int tipo) {
-		Tipo = tipo;
 	}
 	
 }

@@ -19,9 +19,6 @@
 			  			<div class="centrar">
 			  			<h1></h1>
 			  			<a class="btn btn-info" href="add.jsp">Agregar Nuevo</a>
-			  			<form action="ControllerAcceso" method="post">
-		  					<input type="submit" name="btncerrar" value="Cerrar" class="btn btn-danger cerrar">
-		  				</form>
 			  				<script type="text/javascript">
 			  					$(document).ready(function (){
 		  							$.post('ControllerMostrarInformacion',{
@@ -40,7 +37,6 @@
 		  											<td> ${item.idUsuario} </td>
 		  											<td> ${item.Usuario} </td>
 		  											<td> ${item.PassWord} </td>
-		  											<td> ${item.TipoUser} </td>
 		  											<td> <a href="ControllerMostrarInformacion?IdUsuario=${item.idUsuario}&Eliminar=btne" class="btn btn-danger">Eliminar </td>
 		  											<td> <a name="usu" href="add.jsp?Id=${item.idUsuario}&Usuario=${item.Usuario}&Pass=${item.PassWord}" class="btn btn-warning">Actualizar </td>
 		  										</tr>
@@ -53,24 +49,12 @@
 		  							});
 		  						});
 			  				</script>
-			  				<%
-			  					//Retomando sesion
-			  					HttpSession sesion = (HttpSession) request.getSession();
-			  					String usuSesion= String.valueOf(sesion.getAttribute("usuario"));
-			  					System.out.print( "Nombre usuario: "+usuSesion+" ");
-			  					
-			  					if(usuSesion.equals(null)||usuSesion.equals("null")){
-			  						response.sendRedirect("index.jsp");
-			  					}
-			  				%>
-			  				
 			  				<table id="tablaDatos" class="table table-dark table-striped">
 			  					<thead>
 			  						<tr>
 			  							<th>IdUsuario</th>
 			  							<th>Usuario</th>
 			  							<th>Password</th>
-			  							<th>Tipo</th>
 			  							<th colspan="2">Acciones</th>
 			  						</tr>
 			  					</thead>

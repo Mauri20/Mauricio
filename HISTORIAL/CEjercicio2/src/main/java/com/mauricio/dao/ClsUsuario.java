@@ -13,7 +13,7 @@ public class ClsUsuario {
 
     public ArrayList<usuario> TraerUsuarios() {
         var listado = new ArrayList<usuario>();
-        /*try {
+        try {
             CallableStatement statement = con.prepareCall("SELECT * FROM usuario;");
             ResultSet res = statement.executeQuery();
             while (res.next()) {
@@ -22,22 +22,6 @@ public class ClsUsuario {
                 usu.setUsuario(res.getString("Usuario"));
                 usu.setPassWord(res.getString("PassWord"));
                 usu.setTipoUsuario(res.getInt("tipoUsuario"));
-                //Agregando a la lista
-                listado.add(usu);
-            }
-        } catch (Exception e) {
-        	System.out.println("No se cargaron los Usuarios "+e);
-        }*/
-        try {
-            CallableStatement statement = con.prepareCall("select u.idUsuario, u.Usuario, u.password,t.TipoUser as TipoUsuario from usuario as u inner join tipousuario as t where u.tipoUsuario = t.id");
-            ResultSet res = statement.executeQuery();
-            while (res.next()) {
-                usuario usu = new usuario();
-                usu.setIdUsuario(res.getInt("idUsuario"));
-                usu.setUsuario(res.getString("Usuario"));
-                usu.setPassWord(res.getString("PassWord"));
-                usu.setTipoUser(res.getString("tipoUsuario"));
-                //usu.setTipoUsuario(res.getInt("tipoUsuario"));
                 //Agregando a la lista
                 listado.add(usu);
             }
