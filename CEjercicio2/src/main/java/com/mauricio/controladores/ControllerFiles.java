@@ -44,20 +44,9 @@ public class ControllerFiles extends HttpServlet {
 		String opcion= request.getParameter("traer");
 		if(opcion.equals("si")) {
 			ClsArchivos files= new ClsArchivos();
-			ArrayList<String> names= new ArrayList<String>();
-			for(var iterar:files.getFiles()){
-				String nombre= new String();
-				nombre=iterar;
-				System.out.println(iterar);
-				names.add(nombre);
-			}			
-			
 			Gson json = new Gson();
-			response.getWriter().append(json.toJson(names));
+			response.getWriter().append(json.toJson(files.getFiles()));
 			response.sendRedirect("mostrarImagen.jsp");
-			
-			/*request.setAttribute("names", names);
-			getServletContext().getRequestDispatcher("/mostrarImagen.jsp").forward(request, response);*/
 		}
 	}
 
@@ -91,7 +80,7 @@ public class ControllerFiles extends HttpServlet {
 		}
 		
 		ClsArchivos files = new ClsArchivos();
-		files.saveFiles(ruta);
+		files.saveFiles(nombreImagen);
 	}
 
 }
