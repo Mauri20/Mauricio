@@ -19,7 +19,7 @@
 					<form action="ControllerFiles" method="post" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<input type="submit" value="Enviar Datos">
-						<a href=ControllerFiles?traer=si>Imagen</a>
+						<a href="mostrarImagen.jsp">Imagen</a>
 					</form>
 					
 				</div>

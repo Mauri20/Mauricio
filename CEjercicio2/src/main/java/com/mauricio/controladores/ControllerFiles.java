@@ -41,13 +41,10 @@ public class ControllerFiles extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		String opcion= request.getParameter("traer");
-		if(opcion.equals("si")) {
-			ClsArchivos files= new ClsArchivos();
-			Gson json = new Gson();
-			response.getWriter().append(json.toJson(files.getFiles()));
-			response.sendRedirect("mostrarImagen.jsp");
-		}
+		
+		ClsArchivos files= new ClsArchivos();
+		Gson json = new Gson();
+		response.getWriter().append(json.toJson(files.getFiles()));
 	}
 
 	/**

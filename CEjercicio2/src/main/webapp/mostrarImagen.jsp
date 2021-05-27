@@ -11,7 +11,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <script type="text/javascript">
 $(document).ready(function (){
-		$.post('ControllerShowFiles'),{
+		$.get('ControllerFiles',{
 			//Esta seccion es para enviar peticiones al servidor
 			
 		}, function (response){
@@ -20,11 +20,21 @@ $(document).ready(function (){
 			//let datos = response.getAttribute("names");
 			console.log(datos);
 			//HACIENDO LA UNION DE CODIGO PARA MOSTRAR LOS DATOS
-			var imagen=document.getElementById('imagen');
-			for (let item of datos){
-				imagen.src="Files/"+item;
+			
+			var tabla = document.getElementById('tablaDatos');
+			for(let item of datos){
+				
+				tabla.innerHTML += `
+					<tr>
+						<td><img class="m-1 img-thumbnail" src="Files/${item}""></td>
+					</tr>
+					
+				
+				`
+				
+				console.log(item);
 			}
-		};
+		});
 	});
 </script>
 </head>
@@ -35,7 +45,16 @@ $(document).ready(function (){
 			<div class="col-6 offset-3">
 				<div class="mt-5 rounded card card-body bg-secondary text-white">
 					<div id="">
-						<img alt="" src="" id="imagen">
+						<table id="tablaDatos" class="table table-dark table-striped">
+		  					<thead>
+		  						<tr>
+		  							<th style="text-align: center">Imagen</th>
+		  						</tr>
+		  					</thead>
+		  					<tbody>
+		  						
+		  					</tbody>
+		  				</table>
 					</div>
 				</div>
 			</div>
